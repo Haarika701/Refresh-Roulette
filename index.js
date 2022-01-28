@@ -38,6 +38,12 @@ var isSelected = function(radio_btn) {
     return false;
 };
 
+function radioButton(){
+    var radioEle = document.getElementsByName("Answer");
+    for (var j = 0; j < radioEle.length; j++)
+        radioEle[j].checked = false;
+}
+
 nextButton.addEventListener("click", () => {
     document.getElementById('question').style = 'display:block'
     let radio_btn=document.getElementsByName('Answer');
@@ -54,9 +60,7 @@ nextButton.addEventListener("click", () => {
     i++;
     displayQuestion = newArr[i]; 
     
-    var radioEle = document.getElementsByName("Answer");
-    for (var j = 0; j < radioEle.length; j++)
-        radioEle[j].checked = false;
+    radioButton();
    
     document.getElementById('question').innerText = displayQuestion.question
     if (i === newArr.length - 1) {
